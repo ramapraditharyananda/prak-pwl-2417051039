@@ -12,11 +12,13 @@
     >
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
     <x-navbar />
 
-    @yield('content')
+    <main class="flex-grow-1">
+        @yield('content')
+    </main>
 
     <x-footer />
 
