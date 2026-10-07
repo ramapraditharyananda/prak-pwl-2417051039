@@ -15,6 +15,7 @@
                 <th>No</th>
                 <th>Nama Mata Kuliah</th>
                 <th>SKS</th>
+                <th>Aksi</th>
             </tr>
         </thead>
 
@@ -24,6 +25,15 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $mk->nama_mk }}</td>
                     <td>{{ $mk->sks }}</td>
+                    <td>
+                        <a href="{{ route('matakuliah.edit', $mk->id) }}">Edit</a>
+
+                        <form action="{{ route('matakuliah.destroy', $mk->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">Hapus</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
